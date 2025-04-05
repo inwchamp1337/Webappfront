@@ -1,0 +1,343 @@
+/* src/App.css */
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #4895ef;
+  --primary-dark: #3f37c9;
+  --secondary-color: #4cc9f0;
+  --text-color: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --bg-dark: #212529;
+  --bg-medium: #343a40;
+  --bg-light: #495057;
+  --success: #2ecc71;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+/* Side Navigation Styles */
+.side-nav {
+  width: 240px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  color: var(--text-color);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-brand {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-brand h2 {
+  margin: 0.75rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  /* เพิ่มสีขาว */
+}
+
+/* Drone Logo Animation */
+.drone-logo {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drone-body {
+  width: 30px;
+  height: 30px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.6);
+}
+
+.drone-wing {
+  position: absolute;
+  width: 20px;
+  height: 6px;
+  background-color: var(--text-color);
+  border-radius: 3px;
+  top: 50%;
+  transform-origin: center;
+  animation: wingRotate 3s infinite linear;
+}
+
+.drone-wing.left {
+  left: 0;
+  animation-delay: 0.2s;
+}
+
+.drone-wing.right {
+  right: 0;
+  animation-delay: 0.4s;
+}
+
+@keyframes wingRotate {
+
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-50%) rotate(180deg) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 1.5rem 0;
+  margin: 0;
+  flex: 1;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  border-left: 4px solid transparent;
+}
+
+.nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.nav-item.active a {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid var(--secondary-color);
+  color: var(--text-color);
+}
+
+.nav-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.nav-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.nav-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.drone-id {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  letter-spacing: 1px;
+  color: #ffffff;
+  /* เปลี่ยนเป็นสีแดง */
+  font-weight: bold;
+  /* เพิ่มความหนาของตัวอักษร */
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* แก้ไขส่วน page-header ใน src/App.css */
+/* แก้ไขส่วน page-header ใน src/App.css */
+/* .page-header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  color: var(--text-color);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  /* เปลี่ยนเป็นสีขาว */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+/* เพิ่มเงาให้ตัวอักษร */
+}
+
+*/ .page-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color);
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .side-nav {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .side-nav {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .nav-brand {
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .nav-brand h2 {
+    margin: 0.75rem 0 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    /* เพิ่มสีขาว */
+  }
+
+  .side-nav ul {
+    display: flex;
+    padding: 0.5rem;
+    overflow-x: auto;
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+
+  .nav-item a {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-item.active a {
+    border-left: none;
+    border-bottom: 3px solid var(--secondary-color);
+  }
+
+  .nav-icon {
+    margin-right: 0.5rem;
+  }
+
+  .nav-footer {
+    display: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .app-container {
+    background-color: var(--bg-dark);
+  }
+
+  .page-header {
+    background-color: var(--bg-medium);
+  }
+
+  .page-header h1 {
+    color: var(--text-color);
+  }
+
+  main {
+    background-color: var(--bg-dark);
+  }
+}

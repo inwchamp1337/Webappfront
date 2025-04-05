@@ -1,0 +1,53 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* ปรับสีพื้นฐาน */
+  --background-color: #ffffff;
+  --text-color: #333333;
+  /* เปลี่ยนเป็นสีเข้มขึ้น */
+  --nav-background: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+  color: #1a1a1a;
+  /* เพิ่มสีให้หัวข้อชัดเจน */
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #4a6fa5;
+  /* เปลี่ยนสีปุ่ม */
+  color: white;
+  /* เพิ่มสีตัวอักษรปุ่ม */
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: #3a5a8c;
+  /* สีเข้มขึ้นเมื่อ hover */
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ลบส่วน media query เดิมออกเพื่อให้ใช้สีเดียวกันทั้งหมด */

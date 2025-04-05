@@ -1,0 +1,191 @@
+/* src/styles/ViewConfig.css */
+.config-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.config-container h2 {
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+/* Drone Animation Styles */
+.drone-animation-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.drone-image {
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.drone-image img {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+}
+
+.drone-image.hovering {
+    animation: hover-animation 2s ease-in-out infinite;
+}
+
+.drone-shadow {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.drone-image.hovering+.drone-shadow {
+    width: 80px;
+    opacity: 0.5;
+}
+
+.drone-light {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.7);
+    animation: blink 1s ease-in-out infinite alternate;
+}
+
+.drone-controls {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Config Card Styles */
+.config-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.config-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.config-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+}
+
+.value {
+    color: #1a1a2e;
+    font-weight: 500;
+}
+
+.light-status.on {
+    color: #28a745;
+}
+
+.light-status.off {
+    color: #dc3545;
+}
+
+/* Animations */
+@keyframes hover-animation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .config-container {
+        padding: 3rem 2rem;
+    }
+
+    .drone-animation-container {
+        width: 300px;
+        height: 250px;
+    }
+
+    .drone-image img {
+        width: 200px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .config-container h2 {
+        color: #e1e1e1;
+    }
+
+    .config-card {
+        background-color: #2a2a3a;
+    }
+
+    .config-item {
+        border-bottom: 1px solid #444;
+    }
+
+    .label {
+        color: #aaa;
+    }
+
+    .value {
+        color: #e1e1e1;
+    }
+
+    .drone-controls {
+        color: #aaa;
+    }
+
+    .drone-shadow {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
